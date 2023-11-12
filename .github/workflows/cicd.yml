@@ -26,7 +26,7 @@
 name: Test CI CD
 on:
   push:
-    branches: [main]
+    branches: [lib]
 jobs:
   test-and-coverage-package:
     runs-on: ubuntu-latest
