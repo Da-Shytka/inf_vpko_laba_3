@@ -1,32 +1,7 @@
-#name: Automated test
-#
-#on:
-#  push
-#
-#jobs:
-#  test:
-#    runs-on: ubuntu-latest #операционная система
-#
-#    steps:
-#      - name: "Checkout repository" #скачивать код внутрь контейнера
-#        uses: actions/checkout@v3
-#      - name: "Install python" #скачивать питон
-#        uses: actions/setup-python@v4
-#        with:
-#          python-version: '3.8'
-#          architecture: 'x64'
-#      - name: "Install Chrome" #скачивать хром
-#        run: sudo apt-get install google-chrome-stable
-#      - name: "Install project dependencies" #установить файл
-#        run: pip install -r requirements.txt
-#      - name: "Run tests" #запустить тест
-#        run: pytest
-
-
 name: Test CI CD
 on:
   push:
-    branches: [lib]
+    branches: [main]
 jobs:
   test-and-coverage-package:
     runs-on: ubuntu-latest
@@ -42,7 +17,6 @@ jobs:
         with:
           python-version: '3.8'
           architecture: 'x64'
-
       - name: "Install project dependencies"
         run: pip install -r requirements.txt
       - name: "Run tests and code coverage analysis"
@@ -77,3 +51,27 @@ jobs:
         with:
           name: "Built package"
           path: "src"
+
+#name: Automated test
+#
+#on:
+#  push
+#
+#jobs:
+#  test:
+#    runs-on: ubuntu-latest #операционная система
+#
+#    steps:
+#      - name: "Checkout repository" #скачивать код внутрь контейнера
+#        uses: actions/checkout@v3
+#      - name: "Install python" #скачивать питон
+#        uses: actions/setup-python@v4
+#        with:
+#          python-version: '3.8'
+#          architecture: 'x64'
+#      - name: "Install Chrome" #скачивать хром
+#        run: sudo apt-get install google-chrome-stable
+#      - name: "Install project dependencies" #установить файл
+#        run: pip install -r requirements.txt
+#      - name: "Run tests" #запустить тест
+#        run: pytest
